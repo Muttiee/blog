@@ -1,0 +1,11 @@
+{{ define "main" }}
+<div class="shell page-wrap content-narrow">
+  <header class="page-heading"><p class="eyebrow">时间索引</p><h1>{{ .Title }}</h1><p>{{ len .Pages }} 篇文章，按发布时间整理。</p></header>
+  <div class="archive-list">
+    {{ range .Pages.GroupByDate "2006" }}
+      <h2 class="archive-year">{{ .Key }}</h2>
+      {{ range .Pages }}<div class="archive-row"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "01-02" }}</time><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ with .GetTerms "categories" }}<small>{{ (index . 0).LinkTitle }}</small>{{ end }}</div>{{ end }}
+    {{ else }}<p>暂时没有文章。</p>{{ end }}
+  </div>
+</div>
+{{ end }}

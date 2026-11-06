@@ -1,0 +1,19 @@
+{{ define "main" }}
+{{ $posts := where site.RegularPages "Section" "posts" }}
+<div class="shell home-layout">
+  <section class="home-heading">
+    <p class="eyebrow">独立出版</p><h1>{{ site.Title }}</h1>
+    <p class="subtitle">{{ site.Params.subtitle }}</p>
+    <div class="home-meta"><span>{{ len $posts }} 篇内容</span><span>{{ site.Params.tagline }}</span></div>
+  </section>
+  <section class="home-content">
+    <div class="section-title"><h2>最新文章</h2><a href="{{ "posts/" | relURL }}">查看归档 →</a></div>
+    <ul class="post-list">{{ range first 12 $posts.ByDate.Reverse }}{{ partial "post-card.html" . }}{{ else }}<li class="about-card">暂时没有文章。</li>{{ end }}</ul>
+  </section>
+  <aside class="home-aside" aria-label="站点信息">
+    <section class="panel"><div class="profile-top"><span class="profile-mark" aria-hidden="true">R</span><div><h2>{{ site.Title }}</h2><p>{{ site.Params.subtitle }}</p></div></div><div class="profile-stats"><div><small>文章</small><strong>{{ len $posts }}</strong></div><div><small>分类</small><strong>{{ with site.GetPage "categories" }}{{ len .Pages }}{{ else }}0{{ end }}</strong></div></div></section>
+    {{ with site.GetPage "categories" }}<section class="panel"><div class="panel-head"><h2>分类</h2><a href="{{ .RelPermalink }}">全部</a></div><ul class="category-list">{{ range .Pages }}<li><a href="{{ .RelPermalink }}"><span>{{ .LinkTitle }}</span><small>{{ len .Pages }}</small></a></li>{{ end }}</ul></section>{{ end }}
+    {{ with site.GetPage "tags" }}<section class="panel"><div class="panel-head"><h2>标签</h2><a href="{{ .RelPermalink }}">全部</a></div><div class="tag-list">{{ range .Pages }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}</div></section>{{ end }}
+  </aside>
+</div>
+{{ end }}

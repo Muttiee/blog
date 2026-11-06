@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f6f4">
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+  <title>{{ if .IsHome }}{{ site.Title }} · 独立博客{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+  <link rel="canonical" href="{{ .Permalink }}">
+  <link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='13' fill='%23101f19'/%3E%3Cpath d='M17 14h20c10 0 16 6 16 15 0 7-4 12-10 14l12 9H42L29 42h-2v10H17zm10 10v9h10c4 0 6-2 6-5s-2-4-6-4z' fill='white'/%3E%3Cpath d='m34 41 9 0 11 10h-11z' fill='%2308775b'/%3E%3C/svg%3E">
+  <script src="{{ "js/site.js" | relURL }}" defer></script>
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon-sprite" aria-hidden="true"><symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.3 15.9A8.5 8.5 0 0 1 8.1 3.7 8.5 8.5 0 1 0 20.3 15.9Z"/></symbol><symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol><symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h12M8 12h12M8 18h12M4 6h.1M4 12h.1M4 18h.1"/></symbol></svg>
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="site-header"><div class="shell header-inner">
+    <a class="brand" href="{{ "" | relURL }}" aria-label="返回首页"><span class="brand-mark" aria-hidden="true">R</span><strong>{{ site.Title }}</strong></a>
+    <nav class="nav" id="main-nav" aria-label="主导航">
+      <a href="{{ "" | relURL }}"{{ if .IsHome }} aria-current="page"{{ end }}>首页</a>
+      <a href="{{ "categories/" | relURL }}"{{ if eq .Kind "taxonomy" }} aria-current="page"{{ end }}>分类</a>
+      <a href="{{ "posts/" | relURL }}"{{ if eq .Section "posts" }} aria-current="page"{{ end }}>归档</a>
+      <a href="{{ "about/" | relURL }}"{{ if eq .RelPermalink ("about/" | relURL) }} aria-current="page"{{ end }}>关于</a>
+    </nav>
+    <button class="icon-button menu-button" id="menu-button" aria-controls="main-nav" aria-expanded="false" aria-label="打开导航"><svg><use href="#i-menu"/></svg></button>
+    <div class="header-actions"><button class="icon-button" id="theme-button" aria-label="切换深浅色" title="切换深浅色"><svg><use href="#i-moon"/></svg></button></div>
+  </div></header>
+  <div class="reading-progress" id="reading-progress" hidden><span></span></div>
+  <main class="site-main" id="main" tabindex="-1">{{ block "main" . }}{{ end }}</main>
+  <footer class="site-footer"><div class="shell footer-inner"><strong>{{ site.Title }}</strong><p>© {{ now.Year }} · {{ site.Params.tagline }}</p></div></footer>
+</body>
+</html>

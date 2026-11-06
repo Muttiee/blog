@@ -1,0 +1,24 @@
+baseURL = 'https://example.org/'
+defaultContentLanguage = 'zh-cn'
+locale = 'zh-CN'
+title = 'lantian'
+enableRobotsTXT = true
+summaryLength = 45
+
+[params]
+  subtitle = '记录技术、生活与途中所见。'
+  tagline = '清晰表达，长期可读'
+  description = 'lantian 的独立博客，记录技术与生活。'
+
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
+
+[markup.tableOfContents]
+  startLevel = 2
+  endLevel = 3
+  ordered = false
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
