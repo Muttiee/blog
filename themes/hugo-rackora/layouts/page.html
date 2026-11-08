@@ -1,0 +1,11 @@
+{{ define "main" }}
+{{ if eq .Section "posts" }}
+  {{ $toc := .TableOfContents }}{{ $hasToc := in $toc "<li>" }}
+  <div class="article-hero"><a class="back-link" href="{{ "" | relURL }}">← 返回首页</a><h1>{{ .LinkTitle }}</h1><div class="article-hero-meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006年1月2日" }}</time>{{ with .GetTerms "categories" }}<span>{{ (index . 0).LinkTitle }}</span>{{ end }}<span>{{ .ReadingTime }} 分钟阅读</span></div></div>
+  <div class="article-stage"><article class="article-paper"><div class="article-body" id="article-body">{{ .Content }}</div><div class="post-end"><div class="post-tags">{{ range .GetTerms "tags" }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}</div><a class="back" href="{{ "posts/" | relURL }}">全部文章 →</a></div></article>
+  {{ if $hasToc }}<aside class="toc-position"><div class="toc" aria-label="文章目录"><h2>目录</h2>{{ $toc }}</div></aside>{{ end }}</div>
+  {{ if $hasToc }}<button class="toc-fab" id="toc-button" aria-label="打开文章目录"><svg><use href="#i-list"/></svg>目录</button><dialog class="search-dialog" id="toc-dialog" aria-label="文章目录"><div class="dialog-top"><strong style="flex:1">文章目录</strong><button id="toc-close" aria-label="关闭目录">×</button></div><div class="search-results" id="toc-results"></div></dialog>{{ end }}
+{{ else }}
+  <div class="shell page-wrap content-narrow"><header class="page-heading"><p class="eyebrow">独立出版</p><h1>{{ .LinkTitle }}</h1><p>{{ .Description }}</p></header><article class="about-card article-body">{{ .Content }}</article></div>
+{{ end }}
+{{ end }}

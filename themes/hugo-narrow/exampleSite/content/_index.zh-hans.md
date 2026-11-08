@@ -1,0 +1,19 @@
+---
+title: "首页"
+date: 2025-12-31
+author:
+  name: "Hugo Narrow"
+  title: "简洁的 Hugo 主题"
+  description: "专注于内容和用户体验。"
+  avatar: "/images/avatar.svg"
+  social:
+    - name: "GitHub"
+      url: "https://github.com/tom2almighty/hugo-narrow"
+      icon: "github"
+    - name: "X"
+      url: "https://x.com/username"
+      icon: "x"
+    - name: "邮箱"
+      url: "mailto:hello@example.com"
+      icon: "email"
+---

@@ -1,0 +1,6 @@
+{{ define "main" }}
+<div class="shell page-wrap content-narrow">
+  <header class="page-heading"><p class="eyebrow">{{ if eq .Data.Plural "categories" }}文章分类{{ else if eq .Data.Plural "series" }}文章系列{{ else }}文章标签{{ end }}</p><h1>{{ .LinkTitle }}</h1><p>{{ len .RegularPages }} 篇文章</p></header>
+  <ul class="post-list">{{ range .RegularPages.ByDate.Reverse }}{{ partial "post-card.html" . }}{{ else }}<li class="about-card">暂时没有文章。</li>{{ end }}</ul>
+</div>
+{{ end }}

@@ -1,0 +1,73 @@
+main:
+  - name: 文章
+    pageRef: /posts
+    weight: 10
+    params:
+      icon: posts
+
+  - name: 归档
+    pageRef: /archives
+    weight: 20
+    params:
+      icon: archive
+
+  - name: 更多
+    weight: 30
+    params:
+      icon: layers
+
+  - name: 标签
+    weight: 1
+    pageRef: /tags
+    parent: 更多
+    params:
+      icon: tags
+
+  - name: 分类
+    weight: 2
+    pageRef: /categories
+    parent: 更多
+    params:
+      icon: categories
+
+  - name: 系列
+    weight: 3
+    pageRef: /series
+    parent: 更多
+    params:
+      icon: bookmark
+
+  - name: 项目
+    weight: 4
+    pageRef: /projects
+    parent: 更多
+    params:
+      icon: projects
+
+  - name: 时间线
+    weight: 5
+    pageRef: /timeline
+    parent: 更多
+    params:
+      icon: chart
+
+  - name: 关于
+    weight: 6
+    pageRef: /about
+    parent: 更多
+    params:
+      icon: about
+
+  - name: 简历
+    weight: 7
+    pageRef: /resume
+    parent: 更多
+    params:
+      icon: file-text
+
+  - name: RSS 订阅
+    url: /index.xml
+    weight: 8
+    parent: 更多
+    params:
+      icon: rss

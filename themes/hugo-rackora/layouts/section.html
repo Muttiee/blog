@@ -1,0 +1,3 @@
+{{ define "main" }}
+{{ if eq .Section "archives" }}{{ partial "archive-page.html" . }}{{ else if or (eq .Section "about") (eq .Section "timeline") }}{{ partial "content-page.html" . }}{{ else }}{{ partial "list-page.html" . }}{{ end }}
+{{ end }}

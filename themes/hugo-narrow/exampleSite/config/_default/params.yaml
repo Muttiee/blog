@@ -1,0 +1,177 @@
+# Basic site info with SEO
+description: "A modern, clean, and minimal Hugo theme built with Tailwind CSS 4.0. Support custom themes, dark mode, and responsive design."
+keywords: ["Hugo", "Blog", "Theme", "Technology", "Programming"]
+shortName: "Hugo Narrow" # PWA
+images:
+  - "/images/og-default.avif"
+
+# PWA manifest
+pwa:
+  backgroundColor: "#ffffff"
+  themeColor: "#09090b"
+  darkThemeColor: "#09090b"
+  orientation: "portrait-primary" # any | natural | portrait-primary | landscape-primary
+  appleTouchIcon: "" # e.g. "/apple-touch-icon.png"
+
+# Site-wide broadcast announcement
+announcement:
+  enabled: true
+  message: "Site Redesign! We've revamped the website with a new interface and smoother experience."
+  type: "info" # info | warning | destructive
+  dismissible: true
+  autoClose: 8 # seconds; 0 or omit to keep it visible until dismissed
+
+# Favicon
+favicon:
+  svg: "/favicon.svg" # SVG format favicon (recommended)
+
+# Author info
+author:
+  name: "Hugo Narrow"
+  title: "A Clean and Minimal Hugo Theme"
+  description: "Focused on content and user experience."
+  avatar: "/images/avatar.svg"
+  social:
+    - name: "GitHub"
+      url: "https://github.com/username"
+      icon: "github"
+    - name: "X"
+      url: "https://x.com/username"
+      icon: "x"
+    - name: "Email"
+      url: "mailto:hello@example.com"
+      icon: "email"
+
+# Search
+search:
+  # Number of characters of each page stored in the client-side search index.
+  indexContentLength: 2000
+
+# The centered content column. Users can adjust it at runtime with the
+# appearance panel slider (40-90rem); the value is stored in localStorage.
+contentWidth: "56rem"
+# Responsive image variants. Widths are derived from contentWidth, so no
+# per-image breakpoints are needed.
+image:
+  webp: true # Emit a WebP source for JPEG/PNG images
+  quality: 82 # WebP quality (1-100)
+# Default backdrop blur radius in px (0-24) for floating dock, popovers and context bar.
+backdropBlur: 12
+# Default background grain size (0-100, 0 disables the grain texture).
+grainSize: 25
+
+toc:
+  enabled: true # Enable the dock-driven table of contents
+
+# Built-in color schemes live in data/themes.yaml; this picks the default.
+colorScheme: "default"
+
+# Home page configuration
+home:
+  recentPostsCount: 3 # Number of recent post cards on the home page
+  # Available sections: author-section, recent-posts, featured-projects, page-content
+  # Add a custom file in layouts/_partials/home/ and list its name here (without .html).
+  contentOrder:
+    - author-section
+    - recent-posts
+    - featured-projects
+
+# Post configuration
+post:
+  showRelated: true
+  relatedPostsCount: 3
+  license: "CC BY-NC-SA 4.0" # shown in the post meta line; empty to hide
+
+# Comments
+# Supported providers: giscus, disqus, utterances, waline, artalk, twikoo, comentario
+comments:
+  enabled: false
+  provider: "giscus"
+  giscus:
+    repo: "tom2almighty/hugo-narrow-giscus"
+    repoId: "R_kgDOO2gwLg"
+    category: "General"
+    categoryId: "DIC_kwDOO2gwLs4CrEaf"
+    mapping: "pathname"
+    strict: "0"
+    reactionsEnabled: "1"
+    emitMetadata: "0"
+    inputPosition: "bottom"
+    theme: "preferred_color_scheme"
+    lang: "en"
+
+# Analytics
+# Supported providers: google, baidu, clarity, umami
+analytics:
+  provider: "" # e.g. "google"; leave empty to disable
+  google:
+    id: ""
+  baidu:
+    id: ""
+  clarity:
+    id: ""
+  umami:
+    id: ""
+    src: ""
+    domains: ""
+
+# KaTeX
+katex:
+  enabled: true
+  # Auto-render delimiters. Can also be overridden per page via front matter.
+  delimiters:
+    - left: "$$"
+      right: "$$"
+      display: true
+    - left: "$"
+      right: "$"
+      display: false
+    - left: "\\("
+      right: "\\)"
+      display: false
+    - left: "\\["
+      right: "\\]"
+      display: true
+
+# Mermaid
+mermaid:
+  enabled: true
+
+# Gallery
+gallery:
+  enabled: true
+  defaultLayout: justified # justified | masonry | grid
+  gap: 10 # px between items, all layouts
+  targetRowHeight: 200 # justified: target row height
+  lastRowBehavior: center # justified: left | center | right | fill | hide
+  columnWidth: 200 # masonry when columns is auto
+  columns: 4 # grid count; masonry accepts a number or auto
+
+# Lightbox
+lightbox:
+  enabled: true
+
+# Code block
+# Colors come from markup.highlight.style in hugo.yaml. Use a style with a
+# dark counterpart (for example catppuccin-latte or github).
+# https://gohugo.io/functions/css/chromastyles/
+# https://gohugo.io/quick-reference/syntax-highlighting-styles/
+codeblock:
+  collapse:
+    enabled: true
+    defaultState: expanded # expanded | collapsed
+    maxLines: 30
+    collapsedHeight: 120
+
+# Reading progress
+readingProgress:
+  enabled: true
+  showOnHomepage: false
+
+# Date format
+# The theme uses Hugo's localized tokens by default, so this block is optional.
+# Override it globally here, or per language in languages.<lang>.params.dateFormat.
+# dateFormat:
+#   long: ":date_long" # post detail, page headers
+#   short: ":date_short" # cards, archives, series
+#   month: "January 2006" # archive month heading

@@ -1,0 +1,5 @@
+<div class="shell page-wrap content-narrow">
+  <header class="page-heading"><p class="eyebrow">内容索引</p><h1>{{ .LinkTitle }}</h1>{{ with .Description }}<p>{{ . }}</p>{{ end }}</header>
+  {{ with .Content }}<div class="about-card article-body section-intro">{{ . }}</div>{{ end }}
+  <ul class="post-list">{{ range .RegularPages.ByDate.Reverse }}{{ partial "post-card.html" . }}{{ else }}<li class="about-card">暂时没有内容。</li>{{ end }}</ul>
+</div>

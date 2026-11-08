@@ -1,0 +1,3 @@
+{{ $source := resources.Get "images/cloud-sky.png" }}
+{{ $avatar := $source.Fill "160x160 Center webp q82" }}
+{{ return $avatar.RelPermalink }}

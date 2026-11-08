@@ -1,0 +1,4 @@
+name = 'Hugo Rackora'
+license = 'MIT'
+description = 'A clean, readable Hugo theme inspired by Rackora.'
+min_version = '0.169.0'

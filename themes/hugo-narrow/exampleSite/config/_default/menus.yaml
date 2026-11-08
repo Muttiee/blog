@@ -1,0 +1,73 @@
+main:
+  - name: Posts
+    pageRef: /posts
+    weight: 10
+    params:
+      icon: posts
+
+  - name: Archives
+    pageRef: /archives
+    weight: 20
+    params:
+      icon: archive
+
+  - name: More
+    weight: 30
+    params:
+      icon: layers
+
+  - name: Categories
+    weight: 1
+    pageRef: /categories
+    parent: More
+    params:
+      icon: categories
+
+  - name: Tags
+    weight: 2
+    pageRef: /tags
+    parent: More
+    params:
+      icon: tags
+
+  - name: Series
+    weight: 3
+    pageRef: /series
+    parent: More
+    params:
+      icon: bookmark
+
+  - name: Projects
+    weight: 4
+    pageRef: /projects
+    parent: More
+    params:
+      icon: projects
+
+  - name: Timeline
+    weight: 5
+    pageRef: /timeline
+    parent: More
+    params:
+      icon: chart
+
+  - name: About
+    weight: 6
+    pageRef: /about
+    parent: More
+    params:
+      icon: about
+
+  - name: Resume
+    weight: 7
+    pageRef: /resume
+    parent: More
+    params:
+      icon: file-text
+
+  - name: RSS Feed
+    url: /index.xml
+    weight: 8
+    parent: More
+    params:
+      icon: rss

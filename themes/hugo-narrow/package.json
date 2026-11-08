@@ -1,0 +1,32 @@
+{
+  "name": "hugo-narrow",
+  "version": "2.1.1",
+  "description": "A modern, clean Hugo theme built with Tailwind CSS 4.",
+  "scripts": {
+    "compile": "tailwindcss -i ./assets/css/main.css -o ./assets/css/compiled.css --minify",
+    "compile:watch": "tailwindcss -i ./assets/css/main.css -o ./assets/css/compiled.css --watch --minify",
+    "hugo:dev": "hugo server --source=exampleSite --themesDir=../.. --buildDrafts --buildFuture --disableFastRender --printI18nWarnings",
+    "dev": "pnpm run compile && pnpm run hugo:dev",
+    "dev:parallel": "concurrently \"pnpm run compile:watch\" \"pnpm run hugo:dev\"",
+    "build": "pnpm run compile && hugo --source=exampleSite --themesDir=../.. --minify",
+    "check": "pnpm run format:check && pnpm run build",
+    "format:check": "pnpm run format:templates:check && pnpm run format:js:check",
+    "format:write": "pnpm run format:templates && pnpm run format:js",
+    "format:templates": "gotmplfmt -w layouts",
+    "format:templates:check": "files=$(gotmplfmt -l layouts) || exit 1; if [ -n \"$files\" ]; then echo \"$files\"; exit 1; fi",
+    "format:js": "biome format --write .",
+    "format:js:check": "biome format ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "AGPL-3.0-only",
+  "packageManager": "pnpm@10.33.0",
+  "devDependencies": {
+    "@biomejs/biome": "2.6.3",
+    "@tailwindcss/cli": "^4.1.17",
+    "@tailwindcss/typography": "^0.5.20",
+    "concurrently": "^9.2.1",
+    "minisearch": "^7.2.0",
+    "tailwindcss": "^4.1.17"
+  }
+}

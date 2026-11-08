@@ -1,0 +1,9 @@
+<li class="post-card">
+  <div class="card-eyebrow">
+    {{ with .GetTerms "categories" }}{{ $category := index . 0 }}<a href="{{ $category.RelPermalink }}">{{ $category.LinkTitle }}</a>{{ end }}
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+  </div>
+  <h3><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h3>
+  {{ $excerpt := .Description | default (.Summary | plainify) }}{{ with $excerpt }}<p>{{ . | truncate 150 }}</p>{{ end }}
+  <div class="card-meta"><span>{{ .ReadingTime }} 分钟阅读</span>{{ range first 3 (.GetTerms "tags") }}<span>{{ .LinkTitle }}</span>{{ end }}</div>
+</li>

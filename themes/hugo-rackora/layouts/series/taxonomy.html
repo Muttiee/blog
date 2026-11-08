@@ -1,0 +1,6 @@
+{{ define "main" }}
+<div class="shell page-wrap content-narrow">
+  <header class="page-heading"><p class="eyebrow">内容索引</p><h1>系列</h1><p>{{ len .Pages }} 个系列</p></header>
+  <div class="archive-list">{{ range .Pages }}<div class="archive-row"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a><small>{{ len .Pages }} 篇文章</small></div>{{ end }}</div>
+</div>
+{{ end }}

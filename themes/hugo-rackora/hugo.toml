@@ -1,0 +1,10 @@
+[params]
+  subtitle = '记录技术、生活与途中所见。'
+  tagline = '清晰表达，长期可读'
+  description = '记录技术与生活的独立博客。'
+
+[params.katex]
+  enabled = true
+
+[params.mermaid]
+  enabled = true

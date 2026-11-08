@@ -1,0 +1,18 @@
+{{- $options := dict "lineNos" true "lineNumbersInTable" false -}}
+{{- if not .Type -}}
+  {{- $options = merge $options (dict "type" "bash") -}}
+{{- else if not (transform.CanHighlight .Type) -}}
+  {{- $options = merge $options (dict "type" "text") -}}
+{{- end -}}
+{{- $highlighted := transform.HighlightCodeBlock . $options -}}
+{{- $language := .Type | default "bash" | lower -}}
+<div class="code-block-container" data-code-block>
+  <div class="code-block-tools">
+    <span class="code-block-language">{{ $language }}</span>
+    <button class="code-copy-button" type="button" data-code-action="copy" data-label-copied="已复制" title="复制代码" aria-label="复制代码">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>
+    </button>
+  </div>
+  <div class="code-block-content">{{ $highlighted.Wrapped }}</div>
+  <pre hidden data-code-source>{{ .Inner }}</pre>
+</div>
