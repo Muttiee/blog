@@ -1,0 +1,22 @@
+collections:
+  - name: posts
+    label: 文章
+    path: content/posts
+    type: collection
+    filename: "{date}-{title}.md"
+    fields:
+      - name: title
+        label: 标题
+        type: string
+      - name: date
+        label: 发布日期
+        type: datetime
+      - name: tags
+        label: 标签
+        type: list
+      - name: categories
+        label: 分类
+        type: list
+      - name: summary
+        label: 摘要
+        type: text
