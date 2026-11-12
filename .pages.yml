@@ -28,3 +28,9 @@ content:
       - name: summary
         label: 摘要
         type: text
+      # 下面这一段就是正文编辑器！
+      - name: body
+        label: 正文
+        type: code
+        options:
+          language: markdown
