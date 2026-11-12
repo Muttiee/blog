@@ -1,11 +1,12 @@
 media:
   input: static/img
   output: /img
-collections:
+
+content:
   - name: posts
     label: 文章
-    path: content/posts
     type: collection
+    path: content/posts
     filename: "{date}-{title}.md"
     fields:
       - name: title
